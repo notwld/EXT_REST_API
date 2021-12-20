@@ -29,7 +29,7 @@ router.route("/:user").get((req, res) => {
 router.route("/:id").get((req, res) => {
     //find the user with the id of the user in the url
     User.findById(req.params.id)
-        .then(user => res.json(User))
+        .then(User => res.json(User))
         .catch(err => res.status(400).json("Error: " + err));
 
 });

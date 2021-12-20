@@ -4,27 +4,32 @@
 
 //importing express
 const express = require("express");
-
-//middlewares
-const cors = require("cors");
-const mongoose = require("mongoose");
-
-//actually using dotenv to import the environment variables
-require('dotenv').config();
+const bodyParser = require("body-parser");
 
 //initializing express app
 const app = express()
 const port = process.env.PORT || 5000
+
+//middlewares
+const cors = require("cors");
+const mongoose = require("mongoose");
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+//actually using dotenv to import the environment variables
+require('dotenv').config();
+
 
 //somekind of security protocol idk
 app.use(cors());
 app.use(express.json());
 
 //importing the URI form dotenv
-const uri = process.env.MONGODB_URI
+const uri = process.env.ATLAS_URI;
 mongoose.connect(uri,{
     useNewUrlParser:true
 })
+
 
 //connecting to the database perhaps
 const connection = mongoose.connection;
