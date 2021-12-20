@@ -17,5 +17,5 @@ const userSchema = new Schema({
 });
 // this is the fomate of the user model which will be stored in the database
 
-const User = mongoose.model("Exercise",userSchema);
+const User = mongoose.model("User",userSchema);
 module.exports = User;

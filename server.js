@@ -33,7 +33,7 @@ connection.once('open',()=>{
 })
 
 //importing the routers from the routes folder
-const exercisesRouter = require("./routes/exercises");
+const exercisesRouter = require("./routes/exercise");
 const usersRouter = require("./routes/users");
 
 app.use("/exercises",exercisesRouter);
