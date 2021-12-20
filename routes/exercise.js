@@ -21,5 +21,21 @@ router.route("/add").post((req, res) => {
         .catch(error => res.status(400).json("Error: " + error));
 
 });
+router.route("/:id").get((req, res) => {
+    exercise.findById(req.params.id)
+        .then(exercise => res.json(exercise))
+        .catch(err => res.status(400).json("Error: " + err));
+}); 
+router.route("/:id").delete((req, res) => {
+    exercise.findByIdAndDelete(req.params.id)
+        .then(() => res.json("Exercise deleted."))  
+        .catch(err => res.status(400).json("Error: " + err));
+});
+router.route("/:name").delete((req, res) => {
+    exercise.findOneAndDelete({ username: req.params.name })
+        .then(() => res.json("Exercise deleted."))
+        .catch(err => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;
 
