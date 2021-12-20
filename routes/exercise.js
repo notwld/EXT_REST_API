@@ -18,8 +18,8 @@ router.route("/add").post((req, res) => {
     const newExercise = new exercise({ username, goal, duration, date });
     newExercise.save()
         .then(() => res.json("Exercise added!"))
-        .catch(err => res.status(400).json("Error: " + err));
-        
+        .catch(error => res.status(400).json("Error: " + error));
+
 });
 module.exports = router;
 
